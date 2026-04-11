@@ -1,0 +1,48 @@
+-- MYSQL SCRIPT 
+
+-- DROP SCHEMA IF EXISTS MessageApp;
+
+CREATE SCHEMA IF NOT EXISTS MessageApp;
+
+CREATE TABLE IF NOT EXISTS Usuarios(
+    IdUsuario BIGINT PRIMARY KEY AUTO_INCREMENT,
+    Nombre VARCHAR(50) NOT NULL,
+    Apellidos VARCHAR(50) NOT NULL,
+    Contrasena VARCHAR(500) NOT NULL,
+    Token VARCHAR(255) NOT NULL,
+    FechaAlta TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS Contacto( 
+    IdUsuario BIGINT NOT NULL,
+    IdContacto BIGINT NOT NULL,
+    Estado VARCHAR(10) NOT NULL,
+    PRIMARY KEY (IdUsuario, IdContacto),
+    FOREIGN KEY (IdUsuario) REFERENCES Usuarios(IdUsuario) ON DELETE CASCADE,
+    FOREIGN KEY (IdContacto) REFERENCES Usuarios(IdUsuario) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS Conversacion(
+    IdConversacion BIGINT PRIMARY KEY AUTO_INCREMENT,
+    Nombre_Conversacion VARCHAR(50) NOT NULL,
+    FechaAlta TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS MiembrosConversacion(
+    IdConversacion BIGINT NOT NULL,
+    IdUsuario BIGINT NOT NULL,
+    Rol VARCHAR(10) NOT NULL, 
+    PRIMARY KEY (IdConversacion, IdUsuario),
+    FOREIGN KEY (IdConversacion) REFERENCES Conversacion(IdConversacion) ON DELETE CASCADE,
+    FOREIGN KEY (IdUsuario) REFERENCES Usuarios(IdUsuario) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS Mensajes(
+    IdMensaje BIGINT PRIMARY KEY AUTO_INCREMENT,
+    IdUsuario BIGINT NOT NULL,
+    IdConversacion BIGINT NOT NULL,
+    Contenido VARCHAR(500) NOT NULL,
+    FechaMensaje TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (IdUsuario) REFERENCES Usuarios(IdUsuario) ON DELETE CASCADE,
+    FOREIGN KEY (IdConversacion) REFERENCES Conversacion(IdConversacion) ON DELETE CASCADE
+);
