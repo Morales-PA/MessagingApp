@@ -1,0 +1,13 @@
+<h1>Login</h1>
+
+{% if error %}
+    <div style="color:red;">
+        {{ error.messageKey }}
+    </div>
+{% endif %}
+
+<form method="post">
+    <input type="text" name="_username" value="{{ last_username }}" placeholder="Nombre">
+    <input type="password" name="_password" placeholder="Contraseña">
+    <button type="submit">Login</button>
+</form>
