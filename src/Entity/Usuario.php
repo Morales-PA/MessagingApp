@@ -8,29 +8,29 @@ use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 
 #[ORM\Entity]
 #[ORM\Table(name: 'Usuarios')]
-class User implements UserInterface, PasswordAuthenticatedUserInterface
+class Usuario implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'bigint', name: 'IdUsuario')]
-    private ?int $idUsuario = null;
+    private int $idUsuario;
 
     #[ORM\Column(type: 'string', length: 50, name: 'Nombre', unique: true)]
-    private ?string $nombre = null;
+    private string $nombre;
 
     #[ORM\Column(type: 'string', length: 50, name: 'Apellidos')]
-    private ?string $apellidos = null;
+    private string $apellidos;
 
     #[ORM\Column(type: 'string', length: 500, name: 'Contrasena')]
-    private ?string $contrasena = null;
+    private string $contrasena;
 
     #[ORM\Column(type: 'string', length: 255, name: 'Token')]
-    private ?string $token = null;
+    private string $token;
 
     #[ORM\Column(type: 'datetime', name: 'FechaAlta')]
-    private ?\DateTimeInterface $fechaAlta = null;
+    private \DateTimeInterface $fechaAlta;
 
-    //Para el login
+    // Para el login
     public function getUserIdentifier(): string
     {
         return (string) $this->nombre;
@@ -50,12 +50,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     // GETTERS Y SETTERS
 
-    public function getIdUsuario(): ?int
+    public function getIdUsuario(): int
     {
         return $this->idUsuario;
     }
 
-    public function getNombre(): ?string
+    public function getNombre(): string
     {
         return $this->nombre;
     }
@@ -66,7 +66,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getApellidos(): ?string
+    public function getApellidos(): string
     {
         return $this->apellidos;
     }
@@ -77,7 +77,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getContrasena(): ?string
+    public function getContrasena(): string
     {
         return $this->contrasena;
     }
@@ -88,7 +88,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getToken(): ?string
+    public function getToken(): string
     {
         return $this->token;
     }
@@ -99,7 +99,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getFechaAlta(): ?\DateTimeInterface
+    public function getFechaAlta(): \DateTimeInterface
     {
         return $this->fechaAlta;
     }

@@ -15,27 +15,27 @@ CREATE TABLE IF NOT EXISTS Usuarios(
     FechaAlta TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE IF NOT EXISTS Contacto(
+CREATE TABLE IF NOT EXISTS Contactos(
     IdUsuario BIGINT NOT NULL,
     IdContacto BIGINT NOT NULL,
-    Estado VARCHAR(10) NOT NULL,
+    Estado VARCHAR(10) NOT NULL DEFAULT "pendiente",
     PRIMARY KEY (IdUsuario, IdContacto),
     FOREIGN KEY (IdUsuario) REFERENCES Usuarios(IdUsuario) ON DELETE CASCADE,
     FOREIGN KEY (IdContacto) REFERENCES Usuarios(IdUsuario) ON DELETE CASCADE
 );
 
-CREATE TABLE IF NOT EXISTS Conversacion(
+CREATE TABLE IF NOT EXISTS Conversaciones(
     IdConversacion BIGINT PRIMARY KEY AUTO_INCREMENT,
     Nombre_Conversacion VARCHAR(50) NOT NULL,
     FechaAlta TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE IF NOT EXISTS MiembrosConversacion(
+CREATE TABLE IF NOT EXISTS MiembrosConversaciones(
     IdConversacion BIGINT NOT NULL,
     IdUsuario BIGINT NOT NULL,
-    Rol VARCHAR(10) NOT NULL,
+    Rol VARCHAR(10) NOT NULL DEFAULT "miembro",
     PRIMARY KEY (IdConversacion, IdUsuario),
-    FOREIGN KEY (IdConversacion) REFERENCES Conversacion(IdConversacion) ON DELETE CASCADE,
+    FOREIGN KEY (IdConversacion) REFERENCES Conversaciones(IdConversacion) ON DELETE CASCADE,
     FOREIGN KEY (IdUsuario) REFERENCES Usuarios(IdUsuario) ON DELETE CASCADE
 );
 
@@ -46,5 +46,5 @@ CREATE TABLE IF NOT EXISTS Mensajes(
     Contenido VARCHAR(500) NOT NULL,
     FechaMensaje TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (IdUsuario) REFERENCES Usuarios(IdUsuario) ON DELETE CASCADE,
-    FOREIGN KEY (IdConversacion) REFERENCES Conversacion(IdConversacion) ON DELETE CASCADE
+    FOREIGN KEY (IdConversacion) REFERENCES Conversaciones(IdConversacion) ON DELETE CASCADE
 );

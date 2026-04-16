@@ -1,12 +1,12 @@
 security:
     password_hashers:
-        App\Entity\User:
+        App\Entity\Usuario:
             algorithm: auto
 
     providers:
         app_user_provider:
             entity:
-                class: App\Entity\User
+                class: App\Entity\Usuario
                 property: nombre
 
     firewalls:

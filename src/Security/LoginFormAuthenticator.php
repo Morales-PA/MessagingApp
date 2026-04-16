@@ -9,6 +9,7 @@ use Symfony\Component\Security\Http\Authenticator\AbstractLoginFormAuthenticator
 use Symfony\Component\Security\Http\Authenticator\Passport\Passport;
 use Symfony\Component\Security\Http\Authenticator\Passport\Badge\UserBadge;
 use Symfony\Component\Security\Http\Authenticator\Passport\Credentials\PasswordCredentials;
+use Symfony\Component\Security\Http\SecurityRequestAttributes;
 
 class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
 {
@@ -21,8 +22,13 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
 
     public function authenticate(Request $request): Passport
     {
+        $username = $request->request->get('_username');
+
+        // guardar el ultimo usuario escrito
+        $request->getSession()->set(SecurityRequestAttributes::LAST_USERNAME, $username);
+
         return new Passport(
-            new UserBadge($request->request->get('_username')),
+            new UserBadge($username),
             new PasswordCredentials($request->request->get('_password'))
         );
     }
