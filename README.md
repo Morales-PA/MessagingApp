@@ -14,3 +14,5 @@ Componentes utilizados: Ratchet, doctrine y mailer.
 - Entar a la aplicación web (localhost:8000)
 - Utilizar credenciales para loguearse (Nombre: jaime, Contraseña: 1234)
 ---
+
+La carpeta recursos_entrega contiene el vídeo y la memoria
