@@ -1,0 +1,17 @@
+{% extends "base.html.twig" %}
+
+{% block content %}
+
+<h1>Conversaciones</h1>
+<hr>
+{% for conv in conversaciones %}
+    <div>
+        <h3>{{ conv.nombreConversacion }}</h3>
+        <small>{{ conv.fechaAlta|date('Y-m-d H:i') }}</small>
+    </div>
+    <hr>
+{% else %}
+    <p>No hay conversaciones.</p>
+{% endfor %}
+
+{% endblock %}

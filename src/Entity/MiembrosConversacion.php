@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Table(name: 'MiembrosConversaciones')]
 class MiembrosConversacion
 {
-    #[ORM\Id]
+  #[ORM\Id]
     #[ORM\ManyToOne(targetEntity: Conversacion::class)]
     #[ORM\JoinColumn(name: 'IdConversacion', referencedColumnName: 'IdConversacion', onDelete: 'CASCADE')]
     private Conversacion $conversacion;
@@ -18,7 +18,7 @@ class MiembrosConversacion
     #[ORM\JoinColumn(name: 'IdUsuario', referencedColumnName: 'IdUsuario', onDelete: 'CASCADE')]
     private Usuario $usuario;
 
-    #[ORM\Column(type: 'string', length: 10, name: 'Rol')]
+    #[ORM\Column(length: 10, name: 'Rol')]
     private string $rol = 'miembro';
 
     public function getConversacion(): Conversacion

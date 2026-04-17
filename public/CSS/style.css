@@ -1,0 +1,53 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --yellow: #f4c542;
+    --whitebone: #fdfaf3;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: var(--whitebone);
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header, footer {
+    background: var(--yellow);
+    padding: 1rem;
+    text-align: center;
+}
+
+main {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background: white;
+    flex: 1;
+}
+
+nav a {
+    margin: 0 0.5rem;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+button {
+    background: var(--yellow);
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+}

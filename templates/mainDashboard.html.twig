@@ -1,0 +1,10 @@
+{% extends "base.html.twig" %}
+
+{% block header %}  
+    <a href="{{ path("logout") }}">Cerrar Sesión</a> <br> 
+{% endblock %} 
+
+{% block content %}  
+    <a href="{{ path("contactsPetitions") }}">Contactos</a> <br>
+    <a href="{{ path("conversations") }}">Conversaciones</a> <br>
+{% endblock %}

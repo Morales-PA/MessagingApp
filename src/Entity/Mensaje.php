@@ -10,8 +10,8 @@ class Mensaje
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
-    #[ORM\Column(type: 'bigint', name: 'IdMensaje')]
-    private int $idMensaje;
+    #[ORM\Column(name: 'IdMensaje')]
+    private ?int $idMensaje = null;
 
     #[ORM\ManyToOne(targetEntity: Usuario::class)]
     #[ORM\JoinColumn(name: 'IdUsuario', referencedColumnName: 'IdUsuario', onDelete: 'CASCADE')]
@@ -21,11 +21,11 @@ class Mensaje
     #[ORM\JoinColumn(name: 'IdConversacion', referencedColumnName: 'IdConversacion', onDelete: 'CASCADE')]
     private Conversacion $conversacion;
 
-    #[ORM\Column(type: 'string', length: 500, name: 'Contenido')]
+    #[ORM\Column(length: 500, name: 'Contenido')]
     private string $contenido;
 
-    #[ORM\Column(type: 'datetime', name: 'FechaMensaje')]
-    private \DateTimeInterface $fechaMensaje;
+    #[ORM\Column(type: 'datetime', name: 'FechaMensaje', nullable: true)]
+    private ?\DateTimeInterface $fechaMensaje = null;
 
     public function getIdMensaje(): int
     {

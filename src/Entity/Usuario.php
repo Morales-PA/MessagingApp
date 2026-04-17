@@ -12,23 +12,23 @@ class Usuario implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
-    #[ORM\Column(type: 'bigint', name: 'IdUsuario')]
-    private int $idUsuario;
+    #[ORM\Column(name: 'IdUsuario')]
+    private ?int $idUsuario = null;
 
-    #[ORM\Column(type: 'string', length: 50, name: 'Nombre', unique: true)]
+    #[ORM\Column(length: 50, unique: true, name: 'Nombre')]
     private string $nombre;
 
-    #[ORM\Column(type: 'string', length: 50, name: 'Apellidos')]
+    #[ORM\Column(length: 50, name: 'Apellidos')]
     private string $apellidos;
 
-    #[ORM\Column(type: 'string', length: 500, name: 'Contrasena')]
+    #[ORM\Column(length: 500, name: 'Contrasena')]
     private string $contrasena;
 
-    #[ORM\Column(type: 'string', length: 255, name: 'Token')]
+    #[ORM\Column(length: 255, name: 'Token')]
     private string $token;
 
-    #[ORM\Column(type: 'datetime', name: 'FechaAlta')]
-    private \DateTimeInterface $fechaAlta;
+    #[ORM\Column(type: 'datetime', name: 'FechaAlta', nullable: true)]
+    private ?\DateTimeInterface $fechaAlta = null;
 
     // Para el login
     public function getUserIdentifier(): string
