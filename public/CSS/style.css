@@ -25,7 +25,8 @@ header, footer {
 }
 
 main {
-    max-width: 800px;
+    min-width: 500px;
+    max-width: 600px;
     margin: 2rem auto;
     padding: 1.5rem;
     background: white;
@@ -50,4 +51,16 @@ input, textarea {
     width: 100%;
     padding: 0.5rem;
     margin-top: 0.5rem;
+}
+
+form{
+    min-width: 500px;
+    max-width: 600px;
+    margin-top: 1rem;
+}
+
+hr {
+    margin: 1rem 0;
+    border: none;
+    border-top: 1px solid #ccc;
 }

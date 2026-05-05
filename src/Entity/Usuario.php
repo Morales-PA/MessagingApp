@@ -15,6 +15,9 @@ class Usuario implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(name: 'IdUsuario')]
     private ?int $idUsuario = null;
 
+    #[ORM\Column(length: 50, unique: true, name: 'Correo')]
+    private string $correo;
+
     #[ORM\Column(length: 50, unique: true, name: 'Nombre')]
     private string $nombre;
 
@@ -53,6 +56,17 @@ class Usuario implements UserInterface, PasswordAuthenticatedUserInterface
     public function getIdUsuario(): int
     {
         return $this->idUsuario;
+    }
+
+    public function getCorreo(): string
+    {
+        return $this->correo;
+    }
+
+    public function setCorreo(string $correo): self
+    {
+        $this->correo = $correo;
+        return $this;
     }
 
     public function getNombre(): string

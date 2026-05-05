@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block header %}
+    <a href="/">Login</a>
+{% endblock %}
+
+{% block content %}
+    <h1>Crear cuenta</h1><br>
+
+    <form method="post" action="{{ path('create_account_email_sent')}}" >
+
+    Nuevo correo electrónico:<br>
+        <input type="email" name="create_email" placeholder="Correo electrónico"><br><br>
+    Nuevo usuario:<br>
+        <input type="text" name="create_username" placeholder="Nombre"><br><br>
+    Nueva contraseña:<br>
+        <input type="password" name="create_password" placeholder="Contraseña"><br><br>
+    Repetir contraseña:<br>
+        <input type="password" name="create_repeat_password" placeholder="Contraseña"><br><br>
+        <button type="submit">Crear Cuenta</button>
+    </form>
+    <br>
+    <hr>
+    <p>¿Ya tienes una cuenta? <a href="/">Inicia sesión aquí</a>.</p><br>
+    <p>Nota: Se enviará un correo electrónico de verificación a la dirección proporcionada para completar el proceso de creación de cuenta.</p>
+{% endblock %}

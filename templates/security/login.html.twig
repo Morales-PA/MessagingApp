@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Login</h1>
+    <h1>Login</h1><br>
 
     {% if error %}
         <div style="color:red;">
@@ -14,8 +14,18 @@
     {% endif %}
 
     <form method="post">
+        Usuario:<br>
         <input type="text" name="_username" value="{{ last_username }}" placeholder="Nombre">
+        <br>
+        <br>
+        Contraseña:<br>
         <input type="password" name="_password" placeholder="Contraseña">
+        <br><br>
         <button type="submit">Login</button>
     </form>
+    <br>
+    <p>¿Olvidaste tu contraseña? <a href="/recuperar-contraseña">Restablecer contraseña</a></p>
+    <br>
+    <p>¿No tienes una cuenta? <a href="/crear-cuenta">Crear cuenta</a></p>
+
 {% endblock %}
