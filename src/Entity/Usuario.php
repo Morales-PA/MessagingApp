@@ -21,9 +21,6 @@ class Usuario implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 50, unique: true, name: 'Nombre')]
     private string $nombre;
 
-    #[ORM\Column(length: 50, name: 'Apellidos')]
-    private string $apellidos;
-
     #[ORM\Column(length: 500, name: 'Contrasena')]
     private string $contrasena;
 
@@ -77,17 +74,6 @@ class Usuario implements UserInterface, PasswordAuthenticatedUserInterface
     public function setNombre(string $nombre): self
     {
         $this->nombre = $nombre;
-        return $this;
-    }
-
-    public function getApellidos(): string
-    {
-        return $this->apellidos;
-    }
-
-    public function setApellidos(string $apellidos): self
-    {
-        $this->apellidos = $apellidos;
         return $this;
     }
 

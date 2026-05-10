@@ -28,8 +28,15 @@ security:
 
     access_control:
         - { path: ^/login, roles: PUBLIC_ACCESS }
+
         - { path: ^/crear-cuenta, roles: PUBLIC_ACCESS }
-        - { path: ^/recuperar-contraseña, roles: PUBLIC_ACCESS }
         - { path: ^/crear-cuenta/correo-enviado, roles: PUBLIC_ACCESS }
+        - { path: ^/confirmarCuenta, roles: PUBLIC_ACCESS }
+
+        - { path: ^/recuperar-contraseña, roles: PUBLIC_ACCESS }
         - { path: ^/recuperar-contraseña/correo-enviado, roles: PUBLIC_ACCESS }
+
+        - { path: ^/restablecer-contraseña, roles: PUBLIC_ACCESS }
+        - { path: ^/guardar-nueva-password, roles: PUBLIC_ACCESS }
+
         - { path: ^/, roles: ROLE_USER }

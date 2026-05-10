@@ -5,6 +5,17 @@
 {% endblock %}
 
 {% block content %}
+{% if error is defined %}
+        <p style="
+            color: red;
+            background: #ffe5e5;
+            padding: 10px;
+            border-radius: 8px;
+            width: fit-content;
+        ">
+            {{ error }}
+        </p><br>
+    {% endif %}
     <h1>Crear cuenta</h1><br>
 
     <form method="post" action="{{ path('create_account_email_sent')}}" >
