@@ -5,12 +5,12 @@ USE MessageApp;
 -- =====================
 -- USUARIOS
 -- =====================
-INSERT INTO Usuarios (Nombre, Apellidos, Contrasena, Token) VALUES
-('juan', 'perez', '$2y$13$dcgbgGtqEwPC03Syimws1eSAZOZquJ2m1uQyhrjE.CVhNHRNmCHxy', 'token_juan'),
-('maria', 'lopez', '$2y$13$dcgbgGtqEwPC03Syimws1eSAZOZquJ2m1uQyhrjE.CVhNHRNmCHxy', 'token_maria'),
-('carlos', 'garcia', '$2y$13$dcgbgGtqEwPC03Syimws1eSAZOZquJ2m1uQyhrjE.CVhNHRNmCHxy', 'token_carlos'),
-('ana', 'martinez', '$2y$13$dcgbgGtqEwPC03Syimws1eSAZOZquJ2m1uQyhrjE.CVhNHRNmCHxy', 'token_ana'),
-('luis', 'hernandez', '$2y$13$dcgbgGtqEwPC03Syimws1eSAZOZquJ2m1uQyhrjE.CVhNHRNmCHxy', 'token_luis');
+INSERT INTO Usuarios (Correo, Nombre, Contrasena, Token) VALUES
+('juan.perez@gmail.com', 'juan', '$2y$13$dcgbgGtqEwPC03Syimws1eSAZOZquJ2m1uQyhrjE.CVhNHRNmCHxy', ''),
+('maria.lopez@gmail.com', 'maria', '$2y$13$dcgbgGtqEwPC03Syimws1eSAZOZquJ2m1uQyhrjE.CVhNHRNmCHxy', ''),
+('carlos.garcia@gmail.com', 'carlos', '$2y$13$dcgbgGtqEwPC03Syimws1eSAZOZquJ2m1uQyhrjE.CVhNHRNmCHxy', 'token_carlos'),
+('ana.martinez@gmail.com', 'ana', '$2y$13$dcgbgGtqEwPC03Syimws1eSAZOZquJ2m1uQyhrjE.CVhNHRNmCHxy', 'ºtoken_ana'),
+('luis.hernandez@gmail.com', 'luis', '$2y$13$dcgbgGtqEwPC03Syimws1eSAZOZquJ2m1uQyhrjE.CVhNHRNmCHxy', 'token_luis');
 
 -- =====================
 -- CONTACTOS

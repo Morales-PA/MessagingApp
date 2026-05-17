@@ -8,10 +8,10 @@
     <h1>Login</h1><br>
 
     {% if error %}
-        <div style="color:red;">
-            {{ error.messageKey }}
-        </div>
-    {% endif %}
+    <p style="color:red;">
+        {{ error.messageKey|trans(error.messageData, 'security') }}
+    </p>
+{% endif %}
 
     <form method="post">
         Usuario:<br>
