@@ -64,3 +64,35 @@ hr {
     border: none;
     border-top: 1px solid #ccc;
 }
+
+/* ==========================================================================
+   PARCHE DE EMERGENCIA PARA EL TABLERO DE AJEDREZ (TFG)
+   ========================================================================== */
+
+/* Protegemos los textos de las coordenadas (letras y números) */
+.notation-322f9 {
+    box-sizing: border-box !important;
+    padding: 3px !important;
+    font-size: 12px !important;
+    font-weight: bold !important;
+    font-family: Arial, sans-serif !important;
+}
+
+/* Ajuste específico para los números de las filas (lado izquierdo) */
+.numeric-fc462 {
+    top: 2px !important;
+    left: 2px !important;
+}
+
+/* Ajuste específico para las letras de las columnas (abajo) */
+.alpha-d2270 {
+    bottom: 2px !important;
+    right: 4px !important;
+    text-align: right !important;
+}
+
+/* Aseguramos que la sombra del tablero quede limpia */
+.board-b72b1 {
+    box-sizing: border-box !important;
+    border-radius: 4px !important;
+}
