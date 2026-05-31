@@ -1,10 +1,16 @@
 {% extends 'base.html.twig' %}
 
+{% block links %}
+    <script src="{{ asset('JS/createAccountValidation.js') }}"></script>
+{% endblock %}
+
 {% block header %}
     <a href="/">Login</a>
 {% endblock %}
 
+
 {% block content %}
+
 {% if error is defined %}
         <p style="
             color: red;
