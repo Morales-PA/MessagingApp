@@ -5,6 +5,23 @@
 {% endblock %} 
 
 {% block content %}  
-    <a href="{{ path("contactsPetitions") }}">Contactos</a> <br>
-    <a href="{{ path("conversations") }}">Conversaciones</a> <br>
+<div class="menu-container">
+    
+    <a href="{{ path("contactsPetitions") }}" class="menu-box">
+        Contactos
+    </a>
+
+    <a href="{{ path("conversations") }}" class="menu-box">
+        Conversaciones
+    </a>
+
+    <a href="#" class="menu-box">
+        Juegos
+    </a>
+
+    <a href="#" class="menu-box">
+        Perfil
+    </a>
+
+</div>   
 {% endblock %}

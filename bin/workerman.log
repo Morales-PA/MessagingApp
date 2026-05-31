@@ -1,0 +1,36 @@
+2026-05-31 08:51:40 pid:1 Error: Call to protected method Doctrine\DBAL\Connection::connect() from scope App\Command\WebSocketServerCommand in D:\EntornoServidor\MessagingApp\src\Command\WebSocketServerCommand.php:55
+Stack trace:
+#0 D:\EntornoServidor\MessagingApp\vendor\workerman\workerman\src\Connection\TcpConnection.php(805): App\Command\WebSocketServerCommand->App\Command\{closure}(Object(Workerman\Connection\TcpConnection), '{"conversationI...')
+#1 D:\EntornoServidor\MessagingApp\vendor\workerman\workerman\src\Events\Select.php(406): Workerman\Connection\TcpConnection->baseRead(Resource id #712)
+#2 D:\EntornoServidor\MessagingApp\vendor\workerman\workerman\src\Worker.php(1620): Workerman\Events\Select->run()
+#3 D:\EntornoServidor\MessagingApp\vendor\workerman\workerman\src\Worker.php(1536): Workerman\Worker::forkWorkersForWindows()
+#4 D:\EntornoServidor\MessagingApp\vendor\workerman\workerman\src\Worker.php(603): Workerman\Worker::forkWorkers()
+#5 D:\EntornoServidor\MessagingApp\src\Command\WebSocketServerCommand.php(102): Workerman\Worker::runAll()
+#6 D:\EntornoServidor\MessagingApp\vendor\symfony\console\Command\Command.php(341): App\Command\WebSocketServerCommand->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#7 D:\EntornoServidor\MessagingApp\vendor\symfony\console\Application.php(1117): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#8 D:\EntornoServidor\MessagingApp\vendor\symfony\framework-bundle\Console\Application.php(123): Symfony\Component\Console\Application->doRunCommand(Object(App\Command\WebSocketServerCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#9 D:\EntornoServidor\MessagingApp\vendor\symfony\console\Application.php(356): Symfony\Bundle\FrameworkBundle\Console\Application->doRunCommand(Object(App\Command\WebSocketServerCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#10 D:\EntornoServidor\MessagingApp\vendor\symfony\framework-bundle\Console\Application.php(77): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#11 D:\EntornoServidor\MessagingApp\vendor\symfony\console\Application.php(195): Symfony\Bundle\FrameworkBundle\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#12 D:\EntornoServidor\MessagingApp\vendor\symfony\runtime\Runner\Symfony\ConsoleApplicationRunner.php(49): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#13 D:\EntornoServidor\MessagingApp\vendor\autoload_runtime.php(32): Symfony\Component\Runtime\Runner\Symfony\ConsoleApplicationRunner->run()
+#14 D:\EntornoServidor\MessagingApp\bin\console(15): require_once('D:\\EntornoServi...')
+#15 {main}
+2026-05-31 08:52:01 pid:1 Error: Call to protected method Doctrine\DBAL\Connection::connect() from scope App\Command\WebSocketServerCommand in D:\EntornoServidor\MessagingApp\src\Command\WebSocketServerCommand.php:55
+Stack trace:
+#0 D:\EntornoServidor\MessagingApp\vendor\workerman\workerman\src\Connection\TcpConnection.php(805): App\Command\WebSocketServerCommand->App\Command\{closure}(Object(Workerman\Connection\TcpConnection), '{"conversationI...')
+#1 D:\EntornoServidor\MessagingApp\vendor\workerman\workerman\src\Events\Select.php(406): Workerman\Connection\TcpConnection->baseRead(Resource id #712)
+#2 D:\EntornoServidor\MessagingApp\vendor\workerman\workerman\src\Worker.php(1620): Workerman\Events\Select->run()
+#3 D:\EntornoServidor\MessagingApp\vendor\workerman\workerman\src\Worker.php(1536): Workerman\Worker::forkWorkersForWindows()
+#4 D:\EntornoServidor\MessagingApp\vendor\workerman\workerman\src\Worker.php(603): Workerman\Worker::forkWorkers()
+#5 D:\EntornoServidor\MessagingApp\src\Command\WebSocketServerCommand.php(102): Workerman\Worker::runAll()
+#6 D:\EntornoServidor\MessagingApp\vendor\symfony\console\Command\Command.php(341): App\Command\WebSocketServerCommand->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#7 D:\EntornoServidor\MessagingApp\vendor\symfony\console\Application.php(1117): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#8 D:\EntornoServidor\MessagingApp\vendor\symfony\framework-bundle\Console\Application.php(123): Symfony\Component\Console\Application->doRunCommand(Object(App\Command\WebSocketServerCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#9 D:\EntornoServidor\MessagingApp\vendor\symfony\console\Application.php(356): Symfony\Bundle\FrameworkBundle\Console\Application->doRunCommand(Object(App\Command\WebSocketServerCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#10 D:\EntornoServidor\MessagingApp\vendor\symfony\framework-bundle\Console\Application.php(77): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#11 D:\EntornoServidor\MessagingApp\vendor\symfony\console\Application.php(195): Symfony\Bundle\FrameworkBundle\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#12 D:\EntornoServidor\MessagingApp\vendor\symfony\runtime\Runner\Symfony\ConsoleApplicationRunner.php(49): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#13 D:\EntornoServidor\MessagingApp\vendor\autoload_runtime.php(32): Symfony\Component\Runtime\Runner\Symfony\ConsoleApplicationRunner->run()
+#14 D:\EntornoServidor\MessagingApp\bin\console(15): require_once('D:\\EntornoServi...')
+#15 {main}
