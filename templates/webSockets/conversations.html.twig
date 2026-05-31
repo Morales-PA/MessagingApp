@@ -1,0 +1,23 @@
+{% extends "base.html.twig" %}
+
+{% block header %}  
+    <a href="{{ path("logout") }}">Cerrar Sesión</a> <br> 
+{% endblock %} 
+
+{% block content %}
+
+<h1>Conversaciones</h1>
+<a href="path"><h4>Crear una nueva conversacion</h4></a>
+<hr>
+{% for conv in conversaciones %}
+    <div>
+        <a href="{{ path('viewConversationContent', {'id': conv.idConversacion}) }}">
+            <h3>{{ conv.nombreConversacion }}</h3>
+        </a>
+    </div>
+    <hr>
+{% else %}
+    <p>No hay conversaciones.</p>
+{% endfor %}
+
+{% endblock %}

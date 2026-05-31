@@ -1,0 +1,35 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{% endblock %}
+
+{% block header %}
+    <a href="{{ path("logout") }}">Cerrar Sesión</a> <br> 
+{% endblock %}
+
+{% block content %}
+
+<h1>Mis Contactos</h1>
+    <a href="path"><h4>Añadir nuevo contacto</h4></a>
+<hr>
+
+<div class="contacts-container">
+
+    <ul class="contacts-list">
+        {% for registro in contactos %}
+            <li class="contact-item">
+                <div class="contact-info">
+                    <strong class="contact-name">
+                        {{ registro.contacto.nombre }}
+                    </strong>
+                    <span class="contact-email">
+                        ({{ registro.contacto.correo }})
+                    </span>
+                </div>
+            </li>
+        {% else %}
+            <li class="no-contacts">No tienes contactos agregados todavía.</li>
+        {% endfor %}
+    </ul>
+
+</div>
+{% endblock %}

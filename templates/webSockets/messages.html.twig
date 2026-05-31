@@ -1,0 +1,86 @@
+{% extends "base.html.twig" %}
+
+{% block content %}
+<div class="chat-container">
+    
+    <h2>Conversación: {{ conversacion.nombreConversacion }}</h2>
+    <hr>
+
+    <div class="chat-history" id="chatHistory">
+        {% for mensaje in mensajes %}
+            {# Check if the message belongs to the current logged in user #}
+            {% set isMeClass = (app.user and mensaje.usuario.idUsuario == app.user.idUsuario) ? "is-me" : "" %}
+            
+            <div class="message-group {{ isMeClass }}">
+                <strong class="message-author">
+                    {{ mensaje.usuario.nombre }} 
+                    <span class="message-date">
+                        - {{ mensaje.fechaMensaje|date("H:i d/m/Y") }}
+                    </span>
+                </strong>
+                <div class="message-text">
+                    {{ mensaje.contenido }}
+                </div>
+            </div>
+        {% else %}
+            <p id="noMessages" style="color: #999; text-align: center; margin-top: 50px;">No hay mensajes en esta conversación.</p>
+        {% endfor %}
+    </div>
+
+    <div class="chat-input-form">
+        <form id="chatForm">
+            <input 
+                type="text" 
+                id="messageInput"
+                name="contenido" 
+                placeholder="Escribe tu mensaje aquí..." 
+                required
+                autocomplete="off"
+            >
+            <button type="submit">
+                Enviar
+            </button>
+        </form>
+    </div>
+
+</div>
+
+<script>
+    const ws = new WebSocket("ws://127.0.0.1:2346");
+const chat = document.getElementById("chatHistory");
+
+chat.scrollTop = chat.scrollHeight;
+
+ws.onmessage = (e) => {
+    const data = JSON.parse(e.data);
+    if (data.conversationId != "{{ conversacion.idConversacion }}") return;
+
+    document.getElementById("noMessages")?.remove();
+
+    const isMe = data.userId == "{{ app.user ? app.user.idUsuario : 0 }}" ? "is-me" : "";
+
+    chat.insertAdjacentHTML("beforeend", `
+        <div class="message-group ${isMe}">
+            <strong class="message-author">${data.username} <span class="message-date">- ${data.time}</span></strong>
+            <div class="message-text">${data.content}</div>
+        </div>
+    `);
+    chat.scrollTop = chat.scrollHeight;
+};
+
+document.getElementById("chatForm").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const input = document.getElementById("messageInput");
+    if (!input.value.trim()) return;
+
+    ws.send(JSON.stringify({
+        conversationId: "{{ conversacion.idConversacion }}",
+        userId: "{{ app.user ? app.user.idUsuario : 0 }}",
+        username: "{{ app.user ? app.user.nombre : 'Anónimo' }}",
+        content: input.value.trim()
+    }));
+    
+    input.value = "";
+});
+</script>
+{% endblock %}
