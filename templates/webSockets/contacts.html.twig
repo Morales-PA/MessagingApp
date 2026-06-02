@@ -3,7 +3,10 @@
 {% block title %}{% endblock %}
 
 {% block header %}
-    <a href="{{ path("logout") }}">Cerrar Sesión</a> <br> 
+    <div style="padding: 10px 20px; background: #f4c542; display: flex; gap: 15px; align-items: center;">
+        <a href="{{ path("app_home") }}" style="text-decoration: none; color: #333; font-weight: bold;">🏠 Volver al Inicio</a>
+        <a href="{{ path("logout") }}" style="text-decoration: none; color: #a93226; font-weight: bold;">🚪 Cerrar Sesión</a>
+    </div>
 {% endblock %}
 
 {% block content %}
