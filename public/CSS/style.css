@@ -127,7 +127,7 @@ hr {
     padding: 15px;
     margin-bottom: 20px;
     background: #1e1e24; /* Dark elegant theme to contrast gray/yellow bubbles beautifully */
-    
+
     /* CRITICAL: Organizes incoming message items vertically */
     display: flex !important;
     flex-direction: column !important;
@@ -137,11 +137,11 @@ hr {
 .message-group {
     margin-bottom: 15px;
     width: 100% !important;
-    
+
     /* Forces author info to stack directly above the bubble container */
     display: flex !important;
     flex-direction: column !important;
-    align-items: flex-start !important; 
+    align-items: flex-start !important;
 }
 
 /* Metadata text above the container bubble */
@@ -178,7 +178,7 @@ hr {
 
 .message-group.is-me {
     /* Shifts the entire group row items rightward */
-    align-items: flex-end !important; 
+    align-items: flex-end !important;
 }
 
 .message-group.is-me .message-author {
@@ -205,7 +205,7 @@ hr {
 
 .chat-input-form input {
     flex-grow: 1;
-    margin-top: 0; 
+    margin-top: 0;
     border: 1px solid #ccc;
     border-radius: 4px;
     padding: 0.75rem;
