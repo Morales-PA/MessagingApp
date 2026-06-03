@@ -45,7 +45,10 @@ class WebSocketServerCommand extends Command
 
             if ($payload) {
 
-                $conversacion = $this->entityManager->getRepository(Conversacion::class)->find($payload["conversationId"]);
+                $conversacion = $this->entityManager
+                ->getRepository(Conversacion::class)
+                ->find($payload["conversationId"]);
+                
                 $usuario = $this->entityManager->getRepository(Usuario::class)->findOneBy(["nombre" => $payload["username"]]);
 
                 if ($conversacion && $usuario) {
@@ -72,7 +75,7 @@ class WebSocketServerCommand extends Command
         $ws_worker->onClose = function ($connection) {
             echo "Someone disconnected\n";
         };
-
+ 
         Worker::runAll();
 
         return Command::SUCCESS;
