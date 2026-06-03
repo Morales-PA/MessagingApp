@@ -1,0 +1,39 @@
+services:
+
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_DATABASE: MessageApp
+      MYSQL_USER: juan
+      MYSQL_PASSWORD: juan2005
+      MYSQL_ROOT_PASSWORD: juan2005root
+    ports:
+      - "3306:3306" 
+    volumes:
+      - ./populationScript.sql:/docker-entrypoint-initdb.d/firstScript.sql
+      - ./db_storage:/var/lib/mysql
+
+  web:
+    build: .
+    restart: always
+    ports:
+      - "8000:8000"
+    command: sh -c "composer install --no-dev --optimize-autoloader && php bin/console cache:warmup && php -S 0.0.0.0:8000 -t public"
+    depends_on:
+      - db
+    environment:
+      - APP_ENV=prod
+      - DATABASE_URL=mysql://juan:juan2005@db:3306/MessageApp
+
+  websocket:
+    build: .
+    restart: always
+    ports:
+      - "2346:2346"
+    command: sh -c "composer install --no-dev --optimize-autoloader && php bin/console cache:warmup && php bin/console app:start-websocket"
+    depends_on:
+      - db
+    environment:
+      - APP_ENV=prod
+      - DATABASE_URL=mysql://juan:juan2005@db:3306/MessageApp
